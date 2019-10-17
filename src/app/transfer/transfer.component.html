@@ -1,0 +1,59 @@
+<div class="container">
+    
+        <div class="row">
+            <div class="col-sm-4">
+                <h1 class="h3 mb-4 text-gray-800">Transfer</h1>
+            </div>
+        </div>
+    
+    <div class="row">
+        <div class="col-sm-4">
+        
+        </div>
+        <div class="col-sm-8">
+        <div class="tab-panel">
+            <tabset class="member-tabset">
+            <tab heading="Transfer" style="font-weight: bold">
+                <form method="post" [formGroup]="insertForm"  autocomplete="off">
+                <div class="form-group row">
+                    <label for="inputPassword" class="col-sm-2 col-form-label">Amount:</label>
+                    <div class="col-sm-10">
+                    <input type="text" formControlName="amount"  class="form-control form-control-sm">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="inputPassword" class="col-sm-2 col-form-label">AccountNo:</label>
+                    <div class="col-sm-10">
+                    <input type="text" formControlName="acctNo"  class="form-control form-control-sm">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="inputPassword" class="col-sm-2 col-form-label">Description:</label>
+                    <div class="col-sm-10">
+                    <input type="text" formControlName="desc"  class="form-control form-control-sm">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="inputPassword" class="col-sm-2 col-form-label">Transaction Type:</label>
+                    <div class="col-sm-10">
+                        <select formControlName="type" class="form-control">
+                            <option value="">--Transaction Type--</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="inputPassword" class="col-sm-2 col-form-label"></label>
+                    <div class="col-sm-10">
+                        <div class="panel-footer">          
+                            <button class="btn btn-primary btn-block">Transfer</button>
+                        </div>
+                    </div>
+                    </div>
+                </form>
+            </tab>
+            </tabset>
+        </div>
+        </div>
+    </div>
+    
+</div>

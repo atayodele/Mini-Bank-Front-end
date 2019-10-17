@@ -1,0 +1,117 @@
+<div class="container">
+    
+    <div class="row">
+        <div class="col-sm-4">
+            <h1 class="h3 mb-4 text-gray-800">{{user.surname}}'s Profile</h1>
+        </div>
+    </div>
+    
+    <div class="row">
+      <div class="col-sm-4">
+        <div class="panel panel-default">
+          <img class="profile-image thumbnail" src="{{user.photoUrl  ? user.photoUrl : '../../../../assets/images/user.png'}}" alt="">
+          <div class="panel-body">
+            <div>
+              <strong>Account Name: </strong>
+              <p> {{user.accountName}} </p>
+            </div>       
+            <div>
+              <strong>Account Number: </strong>
+              <p>{{user.accountNo}}</p>
+            </div>      
+            <div>
+              <strong>Member Since: </strong>
+              <p>{{user.created | date: 'mediumDate'}}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-8">
+        <div class="tab-panel">
+          <tabset class="member-tabset">
+            <tab heading="Profile">
+              <form #editForm="ngForm" id="editForm" (ngSubmit)="updateUser()" autocomplete="off">
+                  <div class="form-group row">
+                    <label for="inputPassword" class="col-sm-2 col-form-label">Name:</label>
+                    <div class="col-sm-10">
+                      <input type="text" name="surname" class="form-control form-control-sm" style="background-color: white;" [(ngModel)]="user.accountName" readonly>
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <label for="inputPassword" class="col-sm-2 col-form-label">Email:</label>
+                    <div class="col-sm-10">
+                      <input type="text" name="email" class="form-control form-control-sm" style="background-color: white;" [(ngModel)]="user.email" readonly>
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <label for="inputPassword" class="col-sm-2 col-form-label">PhoneNo:</label>
+                    <div class="col-sm-10">
+                      <input type="text" name="phoneNumber" class="form-control form-control-sm" style="background-color: white;" [(ngModel)]="user.phoneNumber" readonly>
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <label for="inputPassword" class="col-sm-2 col-form-label">Address:</label>
+                    <div class="col-sm-10">
+                      <input type="text" name="address" class="form-control form-control-sm" style="background-color: white;" [(ngModel)]="user.address" readonly>
+                    </div>
+                  </div>
+              </form>
+            </tab>
+            <tab heading="Change Avatar" style="font-weight: bold">
+                <app-photo-editor [photos]="user.photos" (getMemberPhotoChange)="updateMainPhoto($event)"></app-photo-editor>
+            </tab>
+            <tab heading="Change PIN" style="font-weight: bold">
+              <p>Create a Transaction PIN</p><br>
+              <form  autocomplete="off">
+                <div class="form-group row">
+                  <label for="inputPassword" class="col-sm-2 col-form-label">PIN:</label>
+                  <div class="col-sm-10">
+                    <input type="password" name="surname" class="form-control form-control-sm">
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <label for="inputPassword" class="col-sm-2 col-form-label">Repeat PIN:</label>
+                  <div class="col-sm-10">
+                    <input type="password" name="email" class="form-control form-control-sm">
+                  </div>
+                </div>
+                <div class="form-group row">
+                    <label for="inputPassword" class="col-sm-2 col-form-label"></label>
+                    <div class="col-sm-10">
+                        <div class="panel-footer">          
+                            <button class="btn btn-primary btn-block">Create</button>
+                        </div>
+                    </div>
+                  </div>
+            </form>
+            </tab>
+            <tab heading="Change Password" style="font-weight: bold">
+                <form  autocomplete="off">
+                    <div class="form-group row">
+                      <label for="inputPassword" class="col-sm-2 col-form-label">Current Password:</label>
+                      <div class="col-sm-10">
+                        <input type="password" name="surname" class="form-control form-control-sm">
+                      </div>
+                    </div>
+                    <div class="form-group row">
+                      <label for="inputPassword" class="col-sm-2 col-form-label">New Password:</label>
+                      <div class="col-sm-10">
+                        <input type="password" name="email" class="form-control form-control-sm">
+                      </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="inputPassword" class="col-sm-2 col-form-label"></label>
+                        <div class="col-sm-10">
+                            <div class="panel-footer">          
+                                <button class="btn btn-primary btn-block">Change</button>
+                            </div>
+                        </div>
+                      </div>
+                </form>
+            </tab>
+          </tabset>
+        </div>
+      </div>
+    </div>
+
+</div>
